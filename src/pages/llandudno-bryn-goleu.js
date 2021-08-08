@@ -2,6 +2,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import Layout from '../layout'
 import { StaticImage } from 'gatsby-plugin-image'
+import { Link } from 'gatsby'
 
 const BlogTitle = styled.h1`
   font-size: 6rem;
@@ -13,7 +14,7 @@ const BlogTitle = styled.h1`
 const BlogSubtitle = styled.h2`
   font-size: 4rem;
   text-align: center;
-  margin-top: 3rem;
+  margin-top: 0;
   margin-bottom: 4rem;
 `
 
@@ -25,13 +26,6 @@ const BlogDate = styled.div`
   font-weight: 900;
 `
 
-const Header = styled(StaticImage)`
-  width: 100%;
-  margin: auto;
-  display: block;
-  border-radius: 5px;
-`
-
 const Container = styled.div`
   max-width: 900px;
   width: 100%;
@@ -39,32 +33,49 @@ const Container = styled.div`
   padding: 0 2.5rem;
 `
 
-// const Link = styled
+const HomeLink = styled(Link)`
+  color: red;
+  text-decoration: none;
+`
 
-// const ExternalLink = ({ href, children }) => {
-//   return (
-//     <a href={href}>{children} </a>
-//   )
-// }
+const ImageContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 20px;
 
-const BrynGoleuLlandudnoPage = () => {
+  img {
+    border-radius: 5px;
+  }
+`
+
+const ImageInfo = styled.div`
+  color: #666;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  text-align: center;
+`
+
+const LlandudnoBrynGoleuPage = () => {
   return (
     <Layout>
       <main>
-        <title>Bryn Goleu Llandudno</title>
-
-        <BlogTitle>Bryn Goleu</BlogTitle>
-        <BlogSubtitle>Llandudno</BlogSubtitle>
+        <title>Llandudno - Bryn Goleu </title>
 
         <Container>
-          <BlogDate>29th July to 1st August 2021</BlogDate>
+          <HomeLink href="/">Home</HomeLink>
 
-          <StaticImage
-            src="../images/bryn-goleu-llandudno/main.jpg"
-            alt="Bryn"
-            placeholder="blurred"
-          />
+          <BlogTitle>Llandudno</BlogTitle>
+          <BlogSubtitle>Bryn Goleu</BlogSubtitle>
 
+        </Container>
+
+        <StaticImage
+          src="../images/llandudno-bryn-goleu/main.jpg"
+          alt="Bryn"
+          placeholder="blurred"
+        />
+
+        <Container>
           <h2>Thursday 29th July</h2>
           <ul>
             <li>Drive from Swansea to Llandudno</li>
@@ -84,6 +95,29 @@ const BrynGoleuLlandudnoPage = () => {
           </ul>
 
           <h2>Saturday 31st July</h2>
+
+          <h3>Lunch a vegan pub - The Blue Bell</h3>
+
+          <ImageContainer>
+            <div>
+              <StaticImage
+                src="../images/llandudno-bryn-goleu/food1.jpg"
+                alt="Food 1"
+                placeholder="blurred"
+              />
+              <ImageInfo>Vegan burger, hot dog & truffle oil chips</ImageInfo>
+            </div>
+
+            <div>
+              <StaticImage
+                src="../images/llandudno-bryn-goleu/food2.jpg"
+                alt="Food 2"
+                placeholder="blurred"
+              />
+              <ImageInfo>Vegan brownie and banoffee pancakes</ImageInfo>
+            </div>
+          </ImageContainer>
+
           <ul>
             <li>Conwy Castle</li>
             <li>The Blue Bell</li>
@@ -102,4 +136,4 @@ const BrynGoleuLlandudnoPage = () => {
   )
 }
 
-export default BrynGoleuLlandudnoPage
+export default LlandudnoBrynGoleuPage
